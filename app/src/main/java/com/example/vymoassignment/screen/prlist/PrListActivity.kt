@@ -5,11 +5,17 @@ import com.example.vymoassignment.R
 import com.example.vymoassignment.BR
 import com.example.vymoassignment.base.BaseActivityMvvm
 import com.example.vymoassignment.databinding.ActivityPrListBinding
+import com.example.vymoassignment.utils.PARAM_INTENT_NAME
+import com.example.vymoassignment.utils.PARAM_INTENT_REPO
 
 class PrListActivity : BaseActivityMvvm<ActivityPrListBinding, PrListViewModel>()  {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if(intent.hasExtra(PARAM_INTENT_NAME)){
+            getViewModel()?.getPullRequest(String.format(getString(R.string.url) , intent.getStringExtra(PARAM_INTENT_NAME),intent.getStringExtra(
+                PARAM_INTENT_REPO)))
+        }
     }
 
     override val bindingVariable: Int

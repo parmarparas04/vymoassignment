@@ -8,6 +8,7 @@ import com.example.vymoassignment.R
 import com.example.vymoassignment.base.BaseViewModelMvvm
 import com.example.vymoassignment.screen.prlist.adapter.PrListAdapter
 import com.example.vymoassignment.screen.prlist.models.PrResponseItem
+import com.example.vymoassignment.utils.MSG_NO_PR
 import kotlinx.coroutines.launch
 
 
@@ -19,7 +20,6 @@ class PrListViewModel(repoManager: RepoManager) : BaseViewModelMvvm(repoManager)
     private var adapter: PrListAdapter? = null
 
     init {
-        getPullRequest()
         adapter = PrListAdapter(R.layout.e_pr_list)
     }
 
@@ -30,14 +30,18 @@ class PrListViewModel(repoManager: RepoManager) : BaseViewModelMvvm(repoManager)
      * Method responsible for handling api to get Error task
      */
 
-    private fun getPullRequest() {
+    fun getPullRequest(url:String) {
         viewModelScope.launch {
             runCatching {
-                errorDetailRepository.getPr("https://api.github.com/repos/parmarparas04/assignment/pulls");
+                errorDetailRepository.getPr(url);
             }.onSuccess {response->
                 if(response.code==-1){
                     response.data?.let {
-                        setPrAdaptor(it);
+                        if(!it.isNullOrEmpty())
+                            setPrAdaptor(it)
+                        else{
+                            messagesEvent.sendEvent { showMessage(MSG_NO_PR) }
+                        }
                     }
                 }
             }.onFailure {

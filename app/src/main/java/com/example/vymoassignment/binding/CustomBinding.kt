@@ -1,5 +1,6 @@
 package com.example.vymoassignment.binding
 
+import android.widget.EditText
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +12,21 @@ import java.util.*
 
 class CustomBinding {
     companion object {
+
+        /**
+         * BindingAdapter for handling error
+         * */
+        @BindingAdapter("error")
+        @JvmStatic
+        fun setEditError(editText: EditText, strOrResId: Any?) {
+            if (strOrResId is Int) {
+                editText.error = editText.context.getString((strOrResId as Int?)!!)
+            } else {
+                editText.error = strOrResId as String?
+            }
+            editText.requestFocus()
+        }
+
         @JvmStatic
         @BindingAdapter("setAdapter")
         fun bindRecyclerViewAdapter(
@@ -55,7 +71,7 @@ class CustomBinding {
             return getDisplayableTime(date.time);
         }
 
-        fun getDisplayableTime(delta: Long): String? {
+        private fun getDisplayableTime(delta: Long): String? {
             var difference: Long = 0
             val mDate = System.currentTimeMillis()
             if (mDate > delta) {
@@ -97,4 +113,7 @@ class CustomBinding {
             return null
         }
     }
+
+
+
 }

@@ -4,4 +4,12 @@
     <string name="pull_number">PR Number: </string>
     <string name="pull_status">Pull Status:</string>
     <string name="created">Created : </string>
+
+    <string name="name">Github owner name</string>
+    <string name="repo_nmae">Repo Name</string>
+    <string name="submit">Submit</string>
+    <string name="nameInputError">Please enter a git user name</string>
+    <string name="repoInputError">Please enter a git repo name</string>
+    <string name="url">"https://api.github.com/repos/%s/%s/pulls"</string>
+
 </resources>

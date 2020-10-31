@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.vymoassignment.screen.prdata.PrEntryViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        tools:context=".screen.prdata.PrEntryActivity">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edVwName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:error="@{viewModel.prEntryForm.nameError}"
+            android:text="@={viewModel.prEntryForm.name}"
+            android:hint="@string/name">
+            <requestFocus />
+        </androidx.appcompat.widget.AppCompatEditText>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edVwRepo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edVwName"
+            app:error="@{viewModel.prEntryForm.repoError}"
+            android:text="@={viewModel.prEntryForm.repo}"
+            android:hint="@string/repo_nmae"
+            />
+
+        <Button
+            android:id="@+id/activateAccount_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:textColor="@android:color/white"
+            android:text="@string/submit"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/edVwRepo"
+            android:onClick="@{()-> viewModel.submitClicked()}"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="#A52A2A"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
