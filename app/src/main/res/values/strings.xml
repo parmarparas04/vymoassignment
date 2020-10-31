@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">VymoAssignment</string>
+    <string name="app_name">Vymo Assignment</string>
+    <string name="pull_title">Pull Title:</string>
+    <string name="pull_number">PR Number: </string>
+    <string name="pull_status">Pull Status:</string>
+    <string name="created">Created : </string>
 </resources>
