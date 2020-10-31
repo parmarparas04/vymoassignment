@@ -1,0 +1,75 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    dataBinding {
+        enabled = true
+    }
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$rootProject.appCompactVersion"
+    implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.junitExeVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.expressoVersion"
+
+    // Koin 2 For DI
+    api "org.koin:koin-androidx-viewmodel:$rootProject.koinVersion"
+
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutineVersion"
+
+    //Retrofit2
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$rootProject.coroutineAdapterVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$rootProject.moshiRetrofitVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$rootProject.coroutineAdapterVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+
+    //Okhttp3
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.okhttplogVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttplogVersion"
+
+    //LifeCycle
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$rootProject.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycleVersion"
+
+    api "com.android.support:multidex:$rootProject.multidexVersion"
+//    debugImplementation "com.github.ChuckerTeam.Chucker:library:$rootProject.chuckerVersion"
+//    releaseImplementation "com.github.ChuckerTeam.Chucker:library-no-op:$rootProject.chuckerVersion"
+
+}

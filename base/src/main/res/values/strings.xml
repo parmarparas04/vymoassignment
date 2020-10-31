@@ -1,0 +1,3 @@
+<resources>
+    <string name="no_internet_msg">Sorry! It seems like you\'re not connected to the internet.</string>
+</resources>

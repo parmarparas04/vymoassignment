@@ -1,0 +1,102 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.3.71'
+    repositories {
+        google()
+        jcenter()
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.6.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+
+
+ext {
+    rxBinding = '2.0.0'
+    arch = '1.1.1'
+    support = '28.0.0'
+    espresso = '2.2.2'
+    dagger = '2.14.1'
+
+    junitVersion = '4.12'
+    junitExeVersion = '1.1.1'
+    expressoVersion = '3.2.0'
+
+    mockitoVersion = '2.18.0'
+    powerMockito = '1.7.4'
+    hamcrestVersion = '1.3'
+    retrofitVersion = '2.7.1'
+    retrofitRxAdaptorVersion = '1.0.0'
+
+    okhttplogVersion = '4.4.0'
+    lifecycleVersion = '2.2.0'
+    lifecycleViewModelVersion = '2.2.0-beta01'
+    chuckerVersion = '3.2.0'
+    moshiRetrofitVersion = '2.6.2'
+    appCompactVersion = '1.1.0'
+    ktxVersion = '1.3.0'
+    koinVersion = '2.0.1'
+    coroutineVersion = '1.3.5'
+    coroutineAdapterVersion = '0.9.2'
+    multidexVersion = '1.0.3'
+    roomVersion = '2.0.0'
+    reflectVersion = '1.3.71'
+    materialVersion = '1.1.0'
+    versionLibVersion = '1.3.4'
+    mixpanelLibVersion = '5.+'
+    googlePlayServiceVersion = '17.0.0'
+    constraintlayoutVersion = '1.1.3'
+    expandablelayoutVersion = '2.9.2'
+    legacySupportVersion = '1.0.0'
+    exifinterfaceVersion = '1.0.0'
+    glassfishVersion = '4.0-b33'
+    photoViewVersion = '2.0.0'
+    glideVersion= '4.8.0'
+    googleServiceGmsVersion ='4.3.2'
+    rxRoomJavaVersion ='2.0.0'
+    rxJavaVersion ='2.2.1'
+    rxAndroidVersion = '2.0.2'
+    jodatimeSerVersion =  '1.2.0'
+    gsonVersion = '2.8.5'
+    ktxNavigationVersion ='2.3.0'
+    cardViewVersion = '1.0.0'
+    recyclerViewVersion = '1.0.0'
+    appcompatVersion = '1.1.0'
+    pusherNotificationVersion = '1.0.1'
+    pusherClientVersion = '1.8.2'
+    firebaseDBVersion = '17.0.0'
+    firebaseInviteVersion = '16.1.0'
+    firebaseDynamicLinkVersion = '16.1.7'
+    firebaseCoreVersion = '16.0.8'
+    firebaseIdVersion = '17.1.1'
+    firebaseMsgVersion = '17.5.0'
+    firebaseConfigVersion = '16.4.1'
+    timberVersion = '4.7.0'
+    dbDebugVersion = '1.0.1'
+    picassoVersion = '2.71828'
+    picassoDownloaderVersion = '1.0.2'
+    retrofitGsonConvertorVersion = '2.3.0'
+    crashlyticsVersion = '2.9.6@aar'
+    kotlinxCoroutinesTest = '1.3.4'
+    firebaseAuthKtx = '19.3.2'
+
+}

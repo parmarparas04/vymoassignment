@@ -1,0 +1,3 @@
+rootProject.name='VymoAssignment'
+include ':app'
+include ':base'
